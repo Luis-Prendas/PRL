@@ -12,9 +12,9 @@ export async function GET(req: Request) {
     .eq('shortId', id)
     .maybeSingle()
 
-    if (errorSelect || !dataSelect) throw new Error()
+    // if (errorSelect || !dataSelect) throw new Error()
 
-    return NextResponse.json({ message: 'esta todo bien pa, no es tulpa tuya' })
+    return NextResponse.json({ message: 'esta todo bien pa, no es tulpa tuya', ...dataSelect, ...errorSelect })
 
     // return NextResponse.redirect(dataSelect.original_link, {
     //   status: 307,
