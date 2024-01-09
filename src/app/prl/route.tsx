@@ -18,6 +18,8 @@ export async function GET(req: Request) {
       status: 307,
       headers: {
         'Cache-Control': 'no-store, max-age=0',
+        'Expires': '0',
+        'Pragma': 'no-cache',
       },
     });
     
