@@ -14,7 +14,13 @@ export async function GET(req: Request) {
 
     if (errorSelect || !dataSelect) throw new Error()
 
-    return NextResponse.redirect(dataSelect.original_link)
+    return NextResponse.redirect(dataSelect.original_link, {
+      status: 307,
+      headers: {
+        'Cache-Control': 'no-store, max-age=0',
+      },
+    });
+    
   } catch (err) {
     return NextResponse.json({ message: 'Internal server error' })
   }
