@@ -14,14 +14,16 @@ export async function GET(req: Request) {
 
     if (errorSelect || !dataSelect) throw new Error()
 
-    return NextResponse.redirect(dataSelect.original_link, {
-      status: 307,
-      headers: {
-        'Cache-Control': 'no-store, max-age=0',
-        'Expires': '0',
-        'Pragma': 'no-cache',
-      },
-    });
+    return NextResponse.json({ message: 'esta todo bien pa, no es tulpa tuya' })
+
+    // return NextResponse.redirect(dataSelect.original_link, {
+    //   status: 307,
+    //   headers: {
+    //     'Cache-Control': 'no-store, max-age=0',
+    //     'Expires': '0',
+    //     'Pragma': 'no-cache',
+    //   },
+    // });
     
   } catch (err) {
     return NextResponse.json({ message: 'Internal server error' })
