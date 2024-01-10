@@ -1,7 +1,7 @@
 import { supabase } from '@/services/supabase.conect';
 import { NextResponse } from 'next/server';
 
-export async function GET(req: Request) {
+export async function POST(req: Request) {
   try {
     // const { searchParams } = new URL(req.url)
     // const id = searchParams.get('id')
