@@ -13,8 +13,25 @@ export async function GET(req: Request) {
     // .maybeSingle()
 
     // if (errorSelect || !dataSelect) throw new Error()
-
-    return NextResponse.json({ ...req })
+    
+    const relevantInfo = {
+      method: req.method,
+      url: req.url,
+      headers: req.headers,
+      bodyUsed: req.bodyUsed,
+      cache: req.cache,
+      credentials: req.credentials,
+      destination: req.destination,
+      integrity: req.integrity,
+      keepalive: req.keepalive,
+      mode: req.mode,
+      redirect: req.redirect,
+      referrer: req.referrer,
+      referrerPolicy: req.referrerPolicy,
+      signal: req.signal
+    }
+  
+    return NextResponse.json({ req: relevantInfo })
 
     // return NextResponse.redirect(dataSelect.original_link, {
     //   status: 307,
@@ -24,7 +41,7 @@ export async function GET(req: Request) {
     //     'Pragma': 'no-cache',
     //   },
     // });
-    
+
   } catch (err) {
     return NextResponse.json({ message: 'Internal server error' })
   }
