@@ -16,7 +16,7 @@ export async function GET(req: Request) {
 
     // if (errorSelect || !dataSelect) throw new Error()
 
-    return NextResponse.json({ message: 'esta todo bien pa, no es tulpa tuya', id, ...searchParams })
+    return NextResponse.json({ id: id })
 
     // return NextResponse.redirect(dataSelect.original_link, {
     //   status: 307,
