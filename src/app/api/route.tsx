@@ -6,6 +6,9 @@ export async function GET(req: Request) {
     // const { searchParams } = new URL(req.url)
     // const id = searchParams.get('id')
 
+    const url = new URL('https://shortener-pink.vercel.app/api?id=KPeRXR');
+    const id = url.searchParams.get('id');
+
     // const { data: dataSelect, error: errorSelect } = await supabase
     // .from('TEMPORARY_PUBLIC_SHORTENER')
     // .select()
@@ -14,7 +17,7 @@ export async function GET(req: Request) {
 
     // if (errorSelect || !dataSelect) throw new Error()
 
-    return NextResponse.json({ url: req.url })
+    return NextResponse.json({ id: id, url: url })
 
     // return NextResponse.redirect(dataSelect.original_link, {
     //   status: 307,
@@ -24,7 +27,7 @@ export async function GET(req: Request) {
     //     'Pragma': 'no-cache',
     //   },
     // });
-    
+
   } catch (err) {
     return NextResponse.json({ message: 'Internal server error' })
   }
