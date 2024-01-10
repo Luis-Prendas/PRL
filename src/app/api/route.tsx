@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
   try {
-    // const { searchParams } = new URL(req.url)
-    // const id = searchParams.get('id')
+    const { searchParams } = new URL(req.url)
+    const id = searchParams.get('id')
 
     // const { data: dataSelect, error: errorSelect } = await supabase
     // .from('TEMPORARY_PUBLIC_SHORTENER')
@@ -14,7 +14,7 @@ export async function GET(req: Request) {
 
     // if (errorSelect || !dataSelect) throw new Error()
 
-    return NextResponse.json({ message: 'esta todo bien pa, no es tulpa tuya' })
+    return NextResponse.json({ message: 'esta todo bien pa, no es tulpa tuya', id, ...searchParams })
 
     // return NextResponse.redirect(dataSelect.original_link, {
     //   status: 307,
