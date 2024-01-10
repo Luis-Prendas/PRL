@@ -1,12 +1,10 @@
 import { supabase } from '@/services/supabase.conect';
 import { NextResponse } from 'next/server';
 
-const NEXT_LINK = process.env.NEXT_LINK
-
 export async function GET(req: Request) {
   try {
-    const { searchParams } = new URL(req.url, NEXT_LINK)
-    const id = searchParams.get('id')
+    // const { searchParams } = new URL(req.url)
+    // const id = searchParams.get('id')
 
     // const { data: dataSelect, error: errorSelect } = await supabase
     // .from('TEMPORARY_PUBLIC_SHORTENER')
@@ -16,7 +14,7 @@ export async function GET(req: Request) {
 
     // if (errorSelect || !dataSelect) throw new Error()
 
-    return NextResponse.json({ id: id })
+    return NextResponse.json({ url: req.url })
 
     // return NextResponse.redirect(dataSelect.original_link, {
     //   status: 307,
