@@ -1,9 +1,11 @@
 import { supabase } from '@/services/supabase.conect';
 import { NextResponse } from 'next/server';
 
+const NEXT_LINK = process.env.NEXT_LINK
+
 export async function GET(req: Request) {
   try {
-    const { searchParams } = new URL(req.url)
+    const { searchParams } = new URL(req.url, NEXT_LINK)
     const id = searchParams.get('id')
 
     // const { data: dataSelect, error: errorSelect } = await supabase
