@@ -46,3 +46,27 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: 'Internal server error' })
   }
 }
+
+export async function GET(req: Request) {
+  try {
+    const relevantInfo = {
+      method: req.method,
+      url: req.url,
+      headers: req.headers,
+      bodyUsed: req.bodyUsed,
+      cache: req.cache,
+      credentials: req.credentials,
+      destination: req.destination,
+      integrity: req.integrity,
+      keepalive: req.keepalive,
+      mode: req.mode,
+      redirect: req.redirect,
+      referrer: req.referrer,
+      referrerPolicy: req.referrerPolicy,
+      signal: req.signal
+    }
+    return NextResponse.json({ req: relevantInfo })
+  } catch (err) {
+    return NextResponse.json({ message: 'Internal server error' })
+  }
+}
