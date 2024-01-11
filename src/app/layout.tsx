@@ -41,7 +41,7 @@ export default function RootLayout({
                 </Link>
               </li>
               <li>
-                <Link href='luisprendas.dev@gmail.com' target='_blank'>
+                <Link href='mailto:luisprendas.dev@gmail.com' target='_blank'>
                   <SiGmail className='text-4xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
                 </Link>
               </li>
