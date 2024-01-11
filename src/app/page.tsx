@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <main className='w-full h-full flex items-center flex-col gap-8'>
       <form onSubmit={handleSubmit} className="flex gap-4 justify-center items-center">
-        <input className="text-black py-2 px-4 rounded-lg w-72 md:w-96 shadow-lg hover:scale-105 transition border border-neutral-300" type="text" placeholder='https://www.example.com' value={input} onChange={(e) => setInput(e.target.value)} />
+        <input className="text-black py-2 px-4 rounded-lg w-52 md:w-96 shadow-lg hover:scale-105 transition border border-neutral-300" type="text" placeholder='https://www.example.com' value={input} onChange={(e) => setInput(e.target.value)} />
         <button type="submit" className="w-32 py-2 px-4 bg-gradient-to-tr from-fuchsia-600 to-rose-600 text-white rounded-lg shadow-lg hover:scale-105 transition">Acortar</button>
       </form>
       <section className="flex flex-col justify-center items-center gap-4 text-center">

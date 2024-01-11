@@ -65,25 +65,25 @@ export default function RootLayout({
       <body className={`${inter.className} text-neutral-700 pt-28 bg-slate-100 flex items-center flex-col gap-8`}>
         <nav className='bg-white shadow-lg absolute top-0 left-0 w-full flex justify-center p-4'>
           <div className='w-full max-w-screen-lg flex justify-between items-center'>
-            <h1 className='hover:scale-105 transition md:text-3xl text-2xl font-semibold '>
+            <h1 className='hover:scale-105 transition md:text-3xl text-xl font-semibold '>
               <Link href='https://porfolio-luis-prendas.vercel.app/' target='_blank'>
                 DanielPrendas.Dev
               </Link>
             </h1>
-            <ul className='flex gap-8'>
+            <ul className='flex gap-4 justify-center items-center'>
               <li>
                 <Link href='https://github.com/Luis-Prendas' target='_blank'>
-                  <FaGithub className='text-4xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
+                  <FaGithub className='text-2xl md:text-4xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
                 </Link>
               </li>
               <li>
                 <Link href='https://www.linkedin.com/in/luisprendasdev/' target='_blank'>
-                  <FaLinkedin className='text-4xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
+                  <FaLinkedin className='text-2xl md:text-4xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
                 </Link>
               </li>
               <li>
                 <Link href='mailto:luisprendas.dev@gmail.com' target='_blank'>
-                  <SiGmail className='text-4xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
+                  <SiGmail className='text-2xl md:text-4xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
                 </Link>
               </li>
             </ul>
