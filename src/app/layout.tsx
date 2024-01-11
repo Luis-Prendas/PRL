@@ -8,6 +8,8 @@ import { SiGmail } from "react-icons/si"
 import { FaLinkSlash } from "react-icons/fa6"
 import { siteConfig } from '../../config/site'
 
+const NEXT_LINK = process.env.NEXT_LINK
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -21,7 +23,27 @@ export const metadata: Metadata = {
       url: '/logo.svg',
       href: '/logo.svg'
     }
-  ]
+  ],
+  openGraph: {
+    title: 'PRL - Acortador de links!',
+    url: NEXT_LINK,
+    locale: 'es_CR',
+    type: 'website',
+    images: [
+      {
+        url: '/capture.png',
+        width: 800,
+        height: 600,
+        alt: 'PLR - Acortador de links coptura'
+      },
+      {
+        url: '/capture.png',
+        width: 1800,
+        height: 1600,
+        alt: 'PLR - Acortador de links coptura'
+      },
+    ],
+  }
 }
 
 export default function RootLayout({
