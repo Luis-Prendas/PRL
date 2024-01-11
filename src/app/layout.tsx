@@ -27,23 +27,32 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'PRL - Acortador de links!',
     url: NEXT_LINK,
-    locale: 'es_CR',
-    type: 'website',
+    siteName: 'PRL',
     images: [
       {
-        url: '/capture.png',
+        url: `${NEXT_LINK}api/og?title=PRL`, // Dynamic og route
         width: 800,
         height: 600,
-        alt: 'PLR - Acortador de links coptura'
       },
       {
-        url: '/capture.png',
+        url: `${NEXT_LINK}api/og?title=PRL`, // Dynamic og route
         width: 1800,
         height: 1600,
         alt: 'PLR - Acortador de links coptura'
       },
     ],
-  }
+    locale: 'es_CR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PRL',
+    description: siteConfig.description,
+    siteId: '1467726470533754880',
+    creator: '@nextjs',
+    creatorId: '1467726470533754880',
+    images: [`${NEXT_LINK}api/og?title=PRL`], // Must be an absolute URL
+  },
 }
 
 export default function RootLayout({
