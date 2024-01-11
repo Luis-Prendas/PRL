@@ -101,9 +101,11 @@ export default function RootLayout({
           </div>
         </div>
         {children}
-        <p className='absolute bottom-8 text-sm md:text-xl text-neutral-500 max-w-xs md:max-w-2xl text-center'>
-          Este servicio de acortado de enlaces está hecho por hobby y tiene la finalidad de simplificar la compartición de URL. No me hago responsable del contenido de los enlaces acortados ni respaldo sus destinos.
-        </p>
+        <footer className='text-sm mb-6 text-neutral-500 max-w-xs md:max-w-2xl text-center'>
+          <p>
+            Este servicio de acortado de enlaces está hecho por hobby y tiene la finalidad de simplificar la compartición de URL. No me hago responsable del contenido de los enlaces acortados ni respaldo sus destinos.
+          </p>
+        </footer>
       </body>
     </html>
   )
