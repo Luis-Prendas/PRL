@@ -63,41 +63,41 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${inter.className} text-neutral-700 pt-28 bg-slate-100 flex items-center flex-col gap-8`}>
-        <nav className='bg-white shadow-lg absolute top-0 left-0 w-full flex justify-center p-4'>
+        <nav className='bg-white shadow absolute top-0 left-0 w-full flex justify-center p-4'>
           <div className='w-full max-w-screen-lg flex justify-between items-center'>
-            <h1 className='hover:scale-105 transition md:text-3xl text-xl font-semibold '>
-              <Link href='https://porfolio-luis-prendas.vercel.app/' target='_blank'>
-                DanielPrendas.Dev
+            <h1 className='hover:scale-105 transition md:text-3xl text-xl font-semibold py-2 px-4 bg-gradient-to-tr from-fuchsia-600 to-rose-600 text-white rounded-lg shadow'>
+              <Link href='/'>
+                PRL
               </Link>
             </h1>
             <ul className='flex gap-4 justify-center items-center'>
               <li>
                 <Link href='https://github.com/Luis-Prendas' target='_blank'>
-                  <FaGithub className='text-2xl md:text-4xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
+                  <FaGithub className='text-3xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
                 </Link>
               </li>
               <li>
                 <Link href='https://www.linkedin.com/in/luisprendasdev/' target='_blank'>
-                  <FaLinkedin className='text-2xl md:text-4xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
+                  <FaLinkedin className='text-3xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
                 </Link>
               </li>
               <li>
                 <Link href='mailto:luisprendas.dev@gmail.com' target='_blank'>
-                  <SiGmail className='text-2xl md:text-4xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
+                  <SiGmail className='text-3xl opacity-30 hover:opacity-100 hover:scale-105 transition' />
                 </Link>
               </li>
             </ul>
           </div>
         </nav>
         <div className='flex items-center justify-center flex-col gap-4 md:gap-6'>
-          <div className='flex gap-2 px-4 pb-3 pt-4 items-center border shadow-sm bg-sky-200 text-sky-600 rounded-full uppercase'>
+          <div className='flex gap-2 px-4 pb-3 pt-4 items-center border shadow bg-gradient-to-r from-emerald-100 to-sky-100 text-sky-600 rounded-full uppercase'>
             <FaLinkSlash /> <h1>Acortador de links</h1>
           </div>
-          <h2 className=' text-3xl md:text-6xl text-center text-neutral-800'>
-            De código abierto y gratis
+          <h2 className=' text-3xl md:text-6xl text-center font-medium'>
+            Código Abierto y Gratis
           </h2>
-          <div className='text-3xl md:text-6xl bg-gradient-to-r from-emerald-400 to-sky-500 text-white rounded-md px-4 pb-2 pt-3'>
-            Pruébalo ahora!
+          <div className='text-3xl md:text-6xl bg-gradient-to-r shadow from-emerald-400 to-sky-500 text-white rounded-md px-4 pb-2 pt-3'>
+            Pruébalo Ahora!
           </div>
         </div>
         {children}

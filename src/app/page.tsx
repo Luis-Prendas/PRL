@@ -50,27 +50,27 @@ export default function Home() {
   return (
     <main className='w-full h-full flex items-center flex-col gap-8'>
       <form onSubmit={handleSubmit} className="flex gap-4 justify-center items-center">
-        <input className="text-black py-2 px-4 rounded-lg w-52 md:w-96 shadow-lg hover:scale-105 transition border border-neutral-300" type="text" placeholder='https://www.example.com' value={input} onChange={(e) => setInput(e.target.value)} />
-        <button type="submit" className="w-32 py-2 px-4 bg-gradient-to-tr from-fuchsia-600 to-rose-600 text-white rounded-lg shadow-lg hover:scale-105 transition">Acortar</button>
+        <input className="text-black py-2 px-4 rounded-lg w-52 md:w-96 shadow hover:scale-105 transition border border-neutral-300" type="text" placeholder='https://www.example.com' value={input} onChange={(e) => setInput(e.target.value)} />
+        <button type="submit" className="w-32 py-2 px-4 bg-gradient-to-tr from-fuchsia-600 to-rose-600 text-white rounded-lg shadow hover:scale-105 transition">Acortar</button>
       </form>
       <section className="flex flex-col justify-center items-center gap-4 text-center">
 
         {!data ? null : (
           <div className="flex justify-center items-center gap-4">
-            <input value={data.link_shortened} className="text-black py-2 px-4 rounded-lg w-52 md:w-96 shadow-lg hover:scale-105 transition border border-neutral-300" readOnly />
+            <input value={data.link_shortened} className="text-black py-2 px-4 rounded-lg w-52 md:w-96 shadow hover:scale-105 transition border border-neutral-300" readOnly />
             <div className="flex gap-4 text-2xl">
-              <button onClick={() => handleCopyToClipboard(data.link_shortened)} className="w-12 py-2 px-4 pr-10 bg-gradient-to-tr from-fuchsia-600 to-rose-600 text-white rounded-lg shadow-lg hover:scale-105 transition">
+              <button onClick={() => handleCopyToClipboard(data.link_shortened)} className="w-12 py-2 px-4 pr-10 bg-gradient-to-tr from-fuchsia-600 to-rose-600 text-white rounded-lg shadow hover:scale-105 transition">
                 <FaCopy />
               </button>
-              <Link href={data.link_shortened} target="_blank" className="w-12 py-2 px-4 pr-10 bg-gradient-to-tr from-fuchsia-600 to-rose-600 text-white rounded-lg shadow-lg hover:scale-105 transition">
+              <Link href={data.link_shortened} target="_blank" className="w-12 py-2 px-4 pr-10 bg-gradient-to-tr from-fuchsia-600 to-rose-600 text-white rounded-lg shadow hover:scale-105 transition">
                 <FaExternalLinkSquareAlt />
               </Link>
             </div>
           </div>
         )}
       </section>
-      {copied && <p className="flex gap-2 text-center px-4 pb-3 pt-4 items-center border shadow-sm bg-green-200 text-green-600 rounded-full"><FaRegCheckCircle /> Copiado al portapapeles!</p>}
-      {err && <p className="flex gap-2 text-center px-4 pb-3 pt-4 items-center border shadow-sm bg-red-200 text-red-600 rounded-full"><CgDanger /> Error al acortar el link, revisa el enlace e inténtalo de nuevo.</p>}
+      {copied && <p className="flex gap-2 text-center px-4 pb-3 pt-4 items-center border shadow bg-gradient-to-r from-emerald-200 to-green-200 text-green-600 rounded-full"><FaRegCheckCircle /> Copiado al portapapeles!</p>}
+      {err && <p className="flex gap-2 text-center px-4 pb-3 pt-4 items-center border shadow bg-gradient-to-tr from-red-200 to-rose-200 text-red-600 rounded-full"><CgDanger /> Revisa el enlace e inténtalo de nuevo.</p>}
       {load &&
         <div role="status">
           <svg aria-hidden="true" className="w-8 h-8 text-gray-200 animate-spin fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
