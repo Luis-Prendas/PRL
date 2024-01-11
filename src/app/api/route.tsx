@@ -7,6 +7,10 @@ const NEXT_LINK = process.env.NEXT_LINK
 export async function POST(req: Request) {
   try {
     const { originalLink } = await req.json()
+    const urlRegex = /^(https?|ftp):\/\/(?:www\.)?[^\s/$.?#].[^\s]*$/;
+
+    if (!urlRegex.test(originalLink)) throw new Error()
+
     const shortId = nanoid(3) // Se puede ajustar la longitud del identificador
 
     const { data: dataSelect, error: errorSelect } = await supabase
