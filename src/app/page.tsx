@@ -6,6 +6,8 @@ import { GifsTypes } from "../../types/supabase"
 import { FaCopy } from "react-icons/fa"
 import { FaExternalLinkSquareAlt } from "react-icons/fa"
 import copy from 'clipboard-copy'
+import { CgDanger } from "react-icons/cg"
+import { FaRegCheckCircle } from "react-icons/fa";
 
 export default function Home() {
   const [input, setInput] = useState('')
@@ -67,8 +69,8 @@ export default function Home() {
           </div>
         )}
       </section>
-      {copied && <p className="text-center">Copiado al portapapeles!</p>}
-      {err && <p className="text-center">Error al acortar el link, revisa el enlace e inténtalo de nuevo.</p>}
+      {copied && <p className="flex gap-2 text-center px-4 pb-3 pt-4 items-center border shadow-sm bg-green-200 text-green-600 rounded-full"><FaRegCheckCircle /> Copiado al portapapeles!</p>}
+      {err && <p className="flex gap-2 text-center px-4 pb-3 pt-4 items-center border shadow-sm bg-red-200 text-red-600 rounded-full"><CgDanger /> Error al acortar el link, revisa el enlace e inténtalo de nuevo.</p>}
       {load &&
         <div role="status">
           <svg aria-hidden="true" className="w-8 h-8 text-gray-200 animate-spin fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
