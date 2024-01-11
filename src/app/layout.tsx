@@ -6,18 +6,15 @@ import { FaGithub } from "react-icons/fa"
 import { FaLinkedin } from "react-icons/fa"
 import { SiGmail } from "react-icons/si"
 import { FaLinkSlash } from "react-icons/fa6"
-import { siteConfig } from '../../config/site'
+import { Pill } from '@/components/pill'
 
 const NEXT_LINK = process.env.NEXT_LINK
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`
-  },
-  description: siteConfig.description,
+  title: 'PRL',
+  description: "¡Bienvenido a nuestro servicio de acortador de enlaces! Simplificamos tus URLs largas en enlaces más compactos y fáciles de compartir. Con nuestra herramienta rápida y fácil de usar, puedes generar enlaces acortados con un solo clic. Además, mantén un seguimiento de la actividad de tus enlaces gracias a nuestras estadísticas detalladas. Aprovecha la conveniencia y eficiencia al compartir enlaces con nuestro servicio de acortador. ¡Comienza a simplificar tus enlaces hoy mismo!",
   icons: [
     {
       url: '/logo.svg',
@@ -61,9 +58,9 @@ export default function RootLayout({
           </div>
         </nav>
         <div className='flex items-center justify-center flex-col gap-4 md:gap-6'>
-          <div className='flex gap-2 px-4 pb-3 pt-4 items-center border shadow bg-gradient-to-r from-emerald-100 to-sky-100 text-sky-600 rounded-full uppercase'>
+          <Pill>
             <FaLinkSlash /> <h1>Acortador de links</h1>
-          </div>
+          </Pill>
           <h2 className=' text-3xl md:text-6xl text-center font-medium'>
             Código Abierto y Gratis
           </h2>
