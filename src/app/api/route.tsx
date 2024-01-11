@@ -7,7 +7,7 @@ const NEXT_LINK = process.env.NEXT_LINK
 export async function POST(req: Request) {
   try {
     const { originalLink } = await req.json()
-    const shortId = nanoid(6) // Se puede ajustar la longitud del identificador
+    const shortId = nanoid(3) // Se puede ajustar la longitud del identificador
 
     const { data: dataSelect, error: errorSelect } = await supabase
       .from('TEMPORARY_PUBLIC_SHORTENER')
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
 
     if (dataSelect) return NextResponse.json({ message: 'El enlace ya se encuentra acortado, en hora buena!', ...dataSelect })
 
-    const shortenedLink = NEXT_LINK + 'prl?id=' + shortId
+    const shortenedLink = NEXT_LINK + shortId
 
     const { data: dataUpsert, error: errorInsert } = await supabase
       .from('TEMPORARY_PUBLIC_SHORTENER')

@@ -1,25 +1,16 @@
 "use client"
-import Link from "next/link"
-import { useState } from "react"
 
-interface GifsTypes {
-  created_at: string
-  deleted: boolean
-  id: number
-  link_shortened: string
-  original_link: string
-  shortId: string
-  used: number
-  message?: string
-}
+import Link from "next/link"
+import { FormEvent, useState } from "react"
+import { GifsTypes } from "../../types/supabase"
 
 export default function Home() {
   const [input, setInput] = useState('')
   const [data, setData] = useState<GifsTypes | null>(null)
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    const response = await fetch(`api/shortener`, {
+    const response = await fetch(`api`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,8 +21,6 @@ export default function Home() {
     const res = await response.json() as GifsTypes
 
     setData(res)
-
-    console.log(res)
   }
 
   return (

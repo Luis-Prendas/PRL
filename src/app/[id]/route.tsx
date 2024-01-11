@@ -3,8 +3,9 @@ import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
   try {
-    const { searchParams } = new URL(req.url)
-    const id = searchParams.get('id')
+    const { pathname } = new URL(req.url)
+
+    const id = pathname.replace('/', '')
 
     const { data: dataSelect, error: errorSelect } = await supabase
     .from('TEMPORARY_PUBLIC_SHORTENER')
@@ -22,23 +23,7 @@ export async function GET(req: Request) {
 
 export async function POST(req: Request) {
   try {
-    const relevantInfo = {
-      method: req.method,
-      url: req.url,
-      headers: req.headers,
-      bodyUsed: req.bodyUsed,
-      cache: req.cache,
-      credentials: req.credentials,
-      destination: req.destination,
-      integrity: req.integrity,
-      keepalive: req.keepalive,
-      mode: req.mode,
-      redirect: req.redirect,
-      referrer: req.referrer,
-      referrerPolicy: req.referrerPolicy,
-      signal: req.signal
-    }
-    return NextResponse.json({ req: relevantInfo })
+    return NextResponse.json({ message: 'Succes' })
   } catch (err) {
     return NextResponse.json({ message: 'Internal server error' })
   }
