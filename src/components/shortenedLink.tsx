@@ -1,10 +1,10 @@
+import { type Database } from '@/types/supabase.database'
 import Link from 'next/link'
 import { FaCopy, FaExternalLinkSquareAlt } from 'react-icons/fa'
-import { type ShortenedLinkTypes } from '../../types/supabase'
 
 type HandleCopyToClipboard = (arg1: string) => void
 
-export function ShortenedLink ({ data, handleCopyToClipboard }: { data: ShortenedLinkTypes, handleCopyToClipboard: HandleCopyToClipboard }) {
+export function ShortenedLink ({ data, handleCopyToClipboard }: { data: Database['public']['Tables']['TEMPORARY_PUBLIC_SHORTENER']['Row'], handleCopyToClipboard: HandleCopyToClipboard }) {
   return (
     <section className="flex justify-center items-center gap-4 text-center">
       <input value={data.link_shortened} className="text-black py-2 px-4 rounded-lg w-52 md:w-96 shadow hover:scale-105 transition border border-neutral-300" readOnly />

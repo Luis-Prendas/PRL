@@ -1,18 +1,18 @@
 'use client'
 
 import { type FormEvent, useState } from 'react'
-import { type ShortenedLinkTypes } from '../../types/supabase'
 import { ShortenedLink } from './shortenedLink'
 import { Pill } from './pill'
 import { Spinner } from './spinner'
 import { FaRegCheckCircle } from 'react-icons/fa'
 import { CgDanger } from 'react-icons/cg'
 import copy from 'clipboard-copy'
+import { type Database } from '@/types/supabase.database'
 
 export function Shortener () {
   const [input, setInput] = useState('')
   const [error, setError] = useState<boolean>(false)
-  const [data, setData] = useState<ShortenedLinkTypes | null>(null)
+  const [data, setData] = useState<Database['public']['Tables']['TEMPORARY_PUBLIC_SHORTENER']['Row'] | null>(null)
   const [copied, setCopied] = useState<boolean>(false)
   const [loading, setLoadind] = useState<boolean>(false)
 
@@ -27,7 +27,7 @@ export function Shortener () {
       body: JSON.stringify({ originalLink: input })
     })
 
-    const res = await response.json() as ShortenedLinkTypes
+    const res = await response.json() as Database['public']['Tables']['TEMPORARY_PUBLIC_SHORTENER']['Row']
 
     if (res.link_shortened !== undefined) {
       setData(res)

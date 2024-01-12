@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { IoRocketOutline } from 'react-icons/io5'
 import { MdContentCut } from 'react-icons/md'
 import { FaLinkSlash } from 'react-icons/fa6'
-import { FaEye } from 'react-icons/fa'
+import { ListOfLinks } from '@/components/listOfLinks'
 
 export default function ApplicationPage () {
   return (
@@ -20,15 +20,11 @@ export default function ApplicationPage () {
             className="flex items-center gap-2 py-2 px-4 bg-gradient-to-tr from-fuchsia-600 to-rose-600 text-white rounded-lg shadow hover:scale-105 transition dark:from-indigo-600 dark:to-purple-600"
           ><FaLinkSlash /> Desacortar</Link>
         </div>
-        <div className='flex gap-4 flex-col items-center'>
-          <h2 className='dark:text-white font-bold text-2xl text-slate-950'>Lista de links acortados</h2>
-          <Link
-            href='/list'
-            className="flex items-center gap-2 py-2 px-4 bg-gradient-to-tr from-fuchsia-600 to-rose-600 text-white rounded-lg shadow hover:scale-105 transition dark:from-indigo-600 dark:to-purple-600"
-          ><FaEye /> Ver todos</Link>
-        </div>
       </article>
-
+      <article className='flex gap-4 flex-col items-center'>
+        <h2 className='dark:text-white font-bold text-2xl text-slate-950'>Lista de links acortados</h2>
+        <ListOfLinks />
+      </article>
     </>
   )
 }

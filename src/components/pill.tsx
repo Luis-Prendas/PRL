@@ -28,9 +28,10 @@ interface PillProps {
   children: React.ReactNode
   variantType?: keyof PillVariants['type']
   variantSize?: keyof PillVariants['size']
+  className?: string
 }
 
-export function Pill ({ children, variantType, variantSize }: PillProps) {
+export function Pill ({ children, variantType, variantSize, className }: PillProps) {
   const type = variantType ?? 'information'
   const size = variantSize ?? 'sm'
 
@@ -40,7 +41,7 @@ export function Pill ({ children, variantType, variantSize }: PillProps) {
   const combinedStyle = `text-center shadow rounded-full flex gap-2 justify-center items-center ${typeStyle} ${sizeStyle}`
 
   return (
-    <span className={combinedStyle}>
+    <span className={`${combinedStyle} ${className}`}>
       {children}
     </span>
   )
