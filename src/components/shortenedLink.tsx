@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { FaCopy, FaExternalLinkSquareAlt } from 'react-icons/fa'
-import { type ShortenedLinkTypes } from '../types/supabase'
+import { type ShortenedLinkTypes } from '../../types/supabase'
 
 type HandleCopyToClipboard = (arg1: string) => void
 
