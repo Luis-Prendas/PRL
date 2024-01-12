@@ -1,6 +1,6 @@
 import { supabase } from '@/services/supabase.conect'
 import { NextResponse } from 'next/server'
-import { type ShortenedLinkTypes } from '../../../types/supabase'
+import { type ShortenedLinkTypes } from '../../types/supabase'
 
 export async function GET (req: Request) {
   try {

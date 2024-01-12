@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Nav } from '@/components/nav'
+import { LayoutClient } from './layout.client'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,12 +19,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout ({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className='dark'>
+    <LayoutClient>
       <body className={`${inter.className} text-neutral-500 bg-slate-100 flex items-center flex-col dark:bg-slate-950`}>
         <header className='w-full'>
           <Nav />
         </header>
-        <main className='h-full flex items-center flex-col gap-8 pt-24'>
+        <main className='h-full flex items-center flex-col gap-8 pt-20'>
           {children}
         </main>
         <footer className='p-4'>
@@ -32,6 +33,6 @@ export default function RootLayout ({ children }: { children: React.ReactNode })
           </p>
         </footer>
       </body>
-    </html>
+    </LayoutClient>
   )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { type FormEvent, useState } from 'react'
-import { type ShortenedLinkTypes } from '../../types/supabase'
+import { type ShortenedLinkTypes } from '../types/supabase'
 import { ShortenedLink } from './shortenedLink'
 import { Pill } from './pill'
 import { Spinner } from './spinner'
