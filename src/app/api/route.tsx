@@ -1,13 +1,13 @@
-import { NextResponse } from 'next/server';
-import { nanoid } from 'nanoid';
-import { supabase } from '@/services/supabase.conect';
+import { NextResponse } from 'next/server'
+import { nanoid } from 'nanoid'
+import { supabase } from '@/services/supabase.conect'
 
 const NEXT_LINK = process.env.NEXT_LINK
 
-export async function POST(req: Request) {
+export async function POST (req: Request) {
   try {
-    const { originalLink } = await req.json()
-    const urlRegex = /^(https?|ftp):\/\/(?:www\.)?[^\s/$.?#].[^\s]*$/;
+    const { originalLink }: { originalLink: string } = await req.json()
+    const urlRegex = /^(https?|ftp):\/\/(?:www\.)?[^\s/$.?#].[^\s]*$/
 
     if (!urlRegex.test(originalLink)) throw new Error()
 
