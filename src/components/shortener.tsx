@@ -2,23 +2,20 @@
 
 import { type FormEvent, useState } from 'react'
 import { ShortenedLink } from './shortenedLink'
-import { Pill } from './pill'
-import { Spinner } from './spinner'
-import { FaRegCheckCircle } from 'react-icons/fa'
-import { CgDanger } from 'react-icons/cg'
 import copy from 'clipboard-copy'
 import { type Database } from '@/types/supabase.database'
+import { useToast } from './ui/use-toast'
+import { Toaster } from './ui/toaster'
+import { CgDanger } from 'react-icons/cg'
+import { FaRegCheckCircle } from 'react-icons/fa'
 
 export function Shortener () {
-  const [input, setInput] = useState('')
-  const [error, setError] = useState<boolean>(false)
+  const { toast } = useToast()
+  const [input, setInput] = useState<string>('')
   const [data, setData] = useState<Database['public']['Tables']['TEMPORARY_PUBLIC_SHORTENER']['Row'] | null>(null)
-  const [copied, setCopied] = useState<boolean>(false)
-  const [loading, setLoadind] = useState<boolean>(false)
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-    setLoadind(true)
     const response = await fetch('api', {
       method: 'POST',
       headers: {
@@ -31,20 +28,22 @@ export function Shortener () {
 
     if (res.link_shortened !== undefined) {
       setData(res)
-      setError(false)
     } else {
-      setError(true)
+      toast({
+        variant: 'destructive',
+        title: 'ERROR',
+        description: <><CgDanger className="text-2xl" /> Revisa el enlace e inténtalo de nuevo.</>
+      })
     }
-    setLoadind(false)
   }
 
   const handleCopyToClipboard = (textToCopy: string) => {
-    void copy(textToCopy)
-    setCopied(true)
-
-    setTimeout(() => {
-      setCopied(false)
-    }, 3000)
+    copy(textToCopy)
+    toast({
+      variant: 'succes',
+      title: 'CIPIADO',
+      description: <><FaRegCheckCircle className="text-xl" /> Copiado al portapapeles!</>
+    })
   }
 
   return (
@@ -55,9 +54,7 @@ export function Shortener () {
       </form>
       <section className='flex flex-col gap-8'>
         {(data != null) && <ShortenedLink data={data} handleCopyToClipboard={handleCopyToClipboard} />}
-        {copied && <Pill variantType="success" className='absolute top-6 right-6'><FaRegCheckCircle className="text-xl" /> Copiado al portapapeles!</Pill>}
-        {error && <Pill variantType="danger" className='absolute top-6 right-6'><CgDanger className="text-2xl" /> Revisa el enlace e inténtalo de nuevo.</Pill>}
-        {loading && <Spinner />}
+        <Toaster />
       </section>
     </>
   )

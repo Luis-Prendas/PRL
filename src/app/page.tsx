@@ -8,7 +8,7 @@ export default function Home () {
   return (
     <>
       <article className='flex items-center flex-col gap-8'>
-        <Pill variantType='amber'>
+        <Pill type='amber'>
           <MdContentCut /> <h1>Enlaces ilimitados y slugs personalizados</h1>
         </Pill>
         <h2 className='text-5xl bg-gradient-to-r shadow from-emerald-400 to-sky-500 text-white rounded-md px-4 pb-4 pt-3 font-medium dark:from-green-600 dark:to-indigo-600'>

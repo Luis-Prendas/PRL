@@ -14,7 +14,7 @@ export function Nav () {
         </h1>
         <ul className='flex gap-4 justify-center items-center'>
           <li>
-            <Link href='https://github.com/Luis-Prendas' target='_blank'>
+            <Link href='https://github.com/Luis-Prendas/PRL' target='_blank'>
               <FaGithub className='text-2xl opacity-30 hover:opacity-100 hover:scale-105 transition dark:text-slate-200' />
             </Link>
           </li>
